@@ -80,7 +80,7 @@
                                     {
                                         //Image Available
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Hawai Pizza" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
@@ -95,7 +95,7 @@
                                 </p>
                                 <br>
 
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Rendelés</a>
                             </div>
                         </div>
 
@@ -104,21 +104,13 @@
                 }
                 else
                 {
-                    //Food not available
-                    echo "<div class='error'>Food not Available.</div>";
+                    echo "<div class='error'>Az adott pizza nem elérhető.</div>";
                 }
             
             ?>
-
-            
-
             <div class="clearfix"></div>
-
-            
-
         </div>
 
     </section>
-    <!-- fOOD Menu Section Ends Here -->
 
     <?php include('partials-front/footer.php'); ?>

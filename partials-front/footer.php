@@ -1,4 +1,3 @@
-<!-- social Section Starts Here -->
 <section class="social">
         <div class="container text-center">
             <ul>
@@ -14,15 +13,12 @@
             </ul>
         </div>
     </section>
-    <!-- social Section Ends Here -->
 
-    <!-- footer Section Starts Here -->
     <section class="footer">
         <div class="container text-center">
-            <p>All rights reserved. Designed By Vijay Thapa</p>
+            <p>Rekecki Ármin, Sarnyai Ákos 2021</p>
         </div>
     </section>
-    <!-- footer Section Ends Here -->
 
 </body>
 </html>

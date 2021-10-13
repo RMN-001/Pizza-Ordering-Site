@@ -1,48 +1,32 @@
 
     <?php include('partials-front/menu.php'); ?>
 
-    <!-- fOOD sEARCH Section Starts Here -->
+    <!-- KERESÉS -->
     <section class="food-search text-center">
         <div class="container">
             <?php 
-
-                //Get the Search Keyword
                 $search = $_POST['search'];
-            
             ?>
 
-
-            <h2><a href="#" class="text-white">Foods on Your Search "<?php echo $search; ?>"</a></h2>
+            <h2><a href="#" class="text-white">A kereséses találatai: "<?php echo $search; ?>"</a></h2>
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
 
-
-
-    <!-- fOOD MEnu Section Starts Here -->
+    <!-- Étlep -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">Étlap</h2>
 
             <?php 
-
-                //SQL Query to Get foods based on search keyword
                 $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
-
-                //Execute the Query
                 $res = mysqli_query($conn, $sql);
-
-                //Count Rows
                 $count = mysqli_num_rows($res);
 
-                //Check whether food available of not
                 if($count>0)
                 {
-                    //Food Available
                     while($row=mysqli_fetch_assoc($res))
                     {
-                        //Get the details
                         $id = $row['id'];
                         $title = $row['title'];
                         $price = $row['price'];
@@ -53,17 +37,14 @@
                         <div class="food-menu-box">
                             <div class="food-menu-img">
                                 <?php 
-                                    // Check whether image name is available or not
                                     if($image_name=="")
                                     {
-                                        //Image not Available
                                         echo "<div class='error'>Image not Available.</div>";
                                     }
                                     else
                                     {
-                                        //Image Available
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Hawai pizza" class="img-responsive img-curve">
                                         <?php 
 
                                     }
@@ -79,17 +60,15 @@
                                 </p>
                                 <br>
 
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Rendelés</a>
                             </div>
                         </div>
-
                         <?php
                     }
                 }
                 else
                 {
-                    //Food Not Available
-                    echo "<div class='error'>Food not found.</div>";
+                    echo "<div class='error'>Nem található az adott pizza.</div>";
                 }
             
             ?>
