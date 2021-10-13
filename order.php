@@ -74,7 +74,7 @@
                     <input type="email" name="email" placeholder="pl. kovacs.istvan@gmail.com" class="input-responsive" required>
 
                     <div class="order-label">Cím</div>
-                    <textarea name="address" rows="10" placeholder="pl. Kossuth Lajos sugárút 1" class="input-responsive" required></textarea>
+                    <textarea name="address" rows="10" placeholder="pl. 6722 Kossuth Lajos sugárút 1" class="input-responsive" required></textarea>
 
                     <input type="submit" name="submit" value="Rendelés véglegesítés" class="btn btn-primary">
                 </fieldset>

@@ -2,15 +2,15 @@
 
 <div class="main-content">
     <div class="wrapper">
-        <h1>Add Admin</h1>
+        <h1>Admin hozzáadás</h1>
 
         <br><br>
 
         <?php 
-            if(isset($_SESSION['add'])) //Checking whether the SEssion is Set of Not
+            if(isset($_SESSION['add']))
             {
-                echo $_SESSION['add']; //Display the SEssion Message if SEt
-                unset($_SESSION['add']); //Remove Session Message
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
             }
         ?>
 
@@ -18,29 +18,29 @@
 
             <table class="tbl-30">
                 <tr>
-                    <td>Full Name: </td>
+                    <td>Teljes név: </td>
                     <td>
-                        <input type="text" name="full_name" placeholder="Enter Your Name">
+                        <input type="text" name="full_name" placeholder="Teljes neved:">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Username: </td>
+                    <td>Felhasználónév: </td>
                     <td>
-                        <input type="text" name="username" placeholder="Your Username">
+                        <input type="text" name="username" placeholder="Felhasználóneved:">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Password: </td>
+                    <td>Jelszó: </td>
                     <td>
-                        <input type="password" name="password" placeholder="Your Password">
+                        <input type="password" name="password" placeholder="Jelszavad">
                     </td>
                 </tr>
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
+                        <input type="submit" name="submit" value="Admin hozzáadás" class="btn-secondary">
                     </td>
                 </tr>
 
@@ -56,14 +56,8 @@
 
 
 <?php 
-    //Process the Value from Form and Save it in Database
-
-    //Check whether the submit button is clicked or not
-
     if(isset($_POST['submit']))
     {
-        // Button Clicked
-        //echo "Button Clicked";
 
         //1. Get the Data from form
         $full_name = $_POST['full_name'];

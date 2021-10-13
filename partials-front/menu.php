@@ -12,8 +12,9 @@
     <section class="navbar">
         <div class="container">
 
+            <!-- Ugorjon itt is a kezdőlapra?-->
             <div class="logo">
-                <a href="#" title="Logo">
+                <a href="<?php echo SITEURL; ?>" title="Logo">
                     <img src="images/logo2.png" alt="Pizzeria logo" class="img-responsive">
                 </a>
             </div>
@@ -30,7 +31,7 @@
                         <a href="<?php echo SITEURL; ?>foods.php">Étlap</a>
                     </li>
                     <li>
-                        <!-- ide egy plsuz oldal?-->
+                        <!-- ide egy plusz oldal?-->
                         <a href="#">Kapcsolat</a> 
                     </li>
                 </ul>

@@ -1,6 +1,6 @@
-
 <?php include('partials-front/menu.php'); ?>
 
+    <!-- háttér + ténylegesen megjelenő típusok -->
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Választható pizzák</h2>

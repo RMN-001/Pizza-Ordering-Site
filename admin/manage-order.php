@@ -65,28 +65,28 @@
                                         <td><?php echo $sn++; ?> </td>
                                         <td><?php echo $order_date; ?></td>
                                         <td><?php echo $food; ?></td>
-                                        <td><?php echo '$'.$price; ?></td>
+                                        <td><?php echo $price .'FT'; ?></td>
                                         <td><?php echo $qty; ?></td>
-                                        <td><?php echo '$'.$total; ?></td>
+                                        <td><?php echo $total .'FT'; ?></td>
                                         
 
                                         <td>
                                             <?php 
                                                 // Ordered, On Delivery, Delivered, Cancelled
 
-                                                if($status=="Ordered")
+                                                if($status=="Megrendelve")
                                                 {
                                                     echo "<label style='color: blue;'>$status</label>";
                                                 }
-                                                elseif($status=="On Delivery")
+                                                elseif($status=="Folyamatban")
                                                 {
                                                     echo "<label style='color: orange;'>$status</label>";
                                                 }
-                                                elseif($status=="Delivered")
+                                                elseif($status=="Szállítva")
                                                 {
                                                     echo "<label style='color: green;'><b>$status</b></label>";
                                                 }
-                                                elseif($status=="Cancelled")
+                                                elseif($status=="Törölve")
                                                 {
                                                     echo "<label style='color: red;'>$status</label>";
                                                 }

@@ -69,6 +69,7 @@
 
     <section class="food-menu">
         <div class="container">
+
             <h2 class="text-center">Étlapunk</h2>
 
             <?php
@@ -129,8 +130,8 @@
         </div>
 
         <p class="text-center">
-            <!-- Ez itt? -->
-            <a href="#">Összes Pizza megjelenítése</a>
+            <!-- Át kellene ugorjon az étlap fülre -->
+            <a href="<?php echo SITEURL; ?>foods.php">Összes pizza megjelenítése</a>
         </p>
 
     </section>
