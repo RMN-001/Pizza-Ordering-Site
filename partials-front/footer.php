@@ -2,6 +2,7 @@
         <div class="container text-center">
             <ul>
                 <li>
+                    <!-- linkeket esetleg? -->
                     <a href="#"><img src="https://img.icons8.com/fluent/50/000000/facebook-new.png"/></a>
                 </li>
                 <li>

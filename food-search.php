@@ -1,7 +1,5 @@
+<?php include('partials-front/menu.php'); ?>
 
-    <?php include('partials-front/menu.php'); ?>
-
-    <!-- KERESÉS -->
     <section class="food-search text-center">
         <div class="container">
             <?php 
@@ -13,7 +11,6 @@
         </div>
     </section>
 
-    <!-- Étlep -->
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Étlap</h2>
@@ -39,12 +36,12 @@
                                 <?php 
                                     if($image_name=="")
                                     {
-                                        echo "<div class='error'>Image not Available.</div>";
+                                        echo "<div class='error'>A kép nem található!</div>";
                                     }
                                     else
                                     {
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Hawai pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Hawaii pizza" class="img-responsive img-curve">
                                         <?php 
 
                                     }
@@ -54,7 +51,7 @@
 
                             <div class="food-menu-desc">
                                 <h4><?php echo $title; ?></h4>
-                                <p class="food-price">$<?php echo $price; ?></p>
+                                <p class="food-price"><?php echo $price; ?> FT</p>
                                 <p class="food-detail">
                                     <?php echo $description; ?>
                                 </p>
@@ -73,15 +70,10 @@
             
             ?>
 
-            
-
             <div class="clearfix"></div>
-
-            
 
         </div>
 
     </section>
-    <!-- fOOD Menu Section Ends Here -->
 
-    <?php include('partials-front/footer.php'); ?>
+<?php include('partials-front/footer.php'); ?>

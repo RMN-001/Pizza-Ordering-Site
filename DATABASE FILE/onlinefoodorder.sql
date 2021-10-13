@@ -10,22 +10,6 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `onlinefoodorder`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_admin`
---
-
 CREATE TABLE `tbl_admin` (
   `id` int(10) UNSIGNED NOT NULL,
   `full_name` varchar(100) NOT NULL,
@@ -38,9 +22,9 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id`, `full_name`, `username`, `password`) VALUES
-(1, 'Steeve Moore', 'steeve', 'E10ADC3949BA59ABBE56E057F20F883E'),
-(9, 'Liam Johnson', 'liam', 'E10ADC3949BA59ABBE56E057F20F883E'),
-(10, 'Ramsey', 'ramsey', 'E10ADC3949BA59ABBE56E057F20F883E'),
+(1, 'Nagy Sándor', 'sanyi', 'E10ADC3949BA59ABBE56E057F20F883E'),
+(4, 'Kiss Géza', 'gezu', 'E10ADC3949BA59ABBE56E057F20F883E'),
+(9, 'Kovács Réka', 'reku', 'E10ADC3949BA59ABBE56E057F20F883E'),
 (12, 'Administrator', 'admin', 'E10ADC3949BA59ABBE56E057F20F883E');
 
 -- --------------------------------------------------------
@@ -62,11 +46,9 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`id`, `title`, `image_name`, `featured`, `active`) VALUES
-(4, 'Pizza', 'Food_Category_790.jpg', 'Yes', 'Yes'),
-(5, 'Burger', 'Food_Category_344.jpg', 'Yes', 'Yes'),
-(9, 'Wraps', 'Food_Category_374.jpg', 'Yes', 'Yes'),
-(10, 'Pasta', 'Food_Category_948.jpg', 'Yes', 'Yes'),
-(11, 'Sandwich', 'Food_Category_536.jpg', 'Yes', 'Yes');
+(1, 'Normal', 'normal.jpg', 'Yes', 'Yes'),
+(2, 'Italian', 'olasz.jpg', 'Yes', 'Yes'),
+(3, 'LowCH', 'csokkentett.jpg', 'Yes', 'Yes')
 
 -- --------------------------------------------------------
 
@@ -78,7 +60,7 @@ CREATE TABLE `tbl_food` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
   `image_name` varchar(255) NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
   `featured` varchar(10) NOT NULL,
@@ -90,11 +72,16 @@ CREATE TABLE `tbl_food` (
 --
 
 INSERT INTO `tbl_food` (`id`, `title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
-(4, 'Ham Burger', 'Burger with Ham, Pineapple and lots of Cheese.', '4.00', 'Food-Name-6340.jpg', 5, 'Yes', 'Yes'),
-(5, 'Smoky BBQ Pizza', 'Best Firewood Pizza in Town.', '9.00', 'Food-Name-8298.jpg', 4, 'No', 'Yes'),
-(9, 'Chicken Wrap', 'Crispy flour tortilla loaded with juicy chicken, bacon, lettuce, avocado and cheese drizzled with a delicious spicy Ranch dressing.', '5.00', 'Food-Name-3461.jpg', 9, 'Yes', 'Yes'),
-(10, 'Cheeseburger', 'A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty.', '4.00', 'Food-Name-433.jpeg', 5, 'Yes', 'Yes'),
-(11, 'Grilled Cheese Sandwich', 'Assembled by creating a cheese filling, often cheddar or American between two slices of bread and is then heated until the bread browns and cheese melts.', '3.00', 'Food-Name-3631.jpg', 11, 'Yes', 'Yes');
+(11, 'Capricciosa Pizza', 'paradicsomos alap, sonka, olajbogyó, gomba, sajt', '1890', 'capricciosa.jpeg', 1, 'Yes', 'Yes'),
+(12, 'Lazacos Pizza', 'paradicsomos alap, lazac, sajt, kakukkfű', '2190', 'salmon.jpeg', 1, 'Yes', 'Yes'),
+(13, 'Magyaros Pizza', 'paradicsomos alap, kolbász, sonka, sajt, hagyma', '1990', 'hungarian.jpeg', 1, 'Yes', 'Yes'),
+(14, 'Húsimádó Pizza', 'paradicsomos alap, kolbász, szalonna, sonka, sajt', '2190', 'husimado.jpeg', 1, 'Yes', 'Yes'),
+(15, 'Prosciutto Pizza', 'paradicsomos alap, prosciutto, sajt, rukkola', '2090', 'prosciutto.jpeg', 1, 'Yes', 'Yes'),
+(16, 'Négysajtos Pizza', 'paradicsomos alap, parmezán, trappista, edámi, feta', '1890', '4cheese.jpeg', 1, 'Yes', 'Yes'),
+(17, 'Négy évszak Pizza', 'paradicsomos alap, sonka, gomba, fagyasztott zöldségek, sajt', '1890', '4season.jpeg', 1, 'Yes', 'Yes'),
+(18, 'Hawaii Pizza', 'paradicsomos alap, sonka, ananász, sajt', '1890', 'hawaii.jpeg', 1, 'Yes', 'Yes'),
+(19, 'Margaréta Pizza', 'paradicsomos alap, sonka, sajt', '1790', 'margareta.jpeg', 1, 'Yes', 'Yes'),
+(20, 'Songoku Pizza', 'paradicsomos alap, sonka, gomba, kukorica, sajt', '1990', 'songoku.jpeg', 1, 'Yes', 'Yes')
 
 -- --------------------------------------------------------
 

@@ -1,13 +1,11 @@
 
 <?php include('partials-front/menu.php'); ?>
 
-    <!-- Választható Pizza kategóriák -->
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Választható pizzák</h2>
 
             <?php 
-
                 $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
                 $res = mysqli_query($conn, $sql);
                 $count = mysqli_num_rows($res);
@@ -26,12 +24,12 @@
                                 <?php 
                                     if($image_name=="")
                                     {
-                                        echo "<div class='error'>Image not found.</div>";
+                                        echo "<div class='error'>A kép nem található</div>";
                                     }
                                     else
                                     {
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Hawaii pizza" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
@@ -46,7 +44,7 @@
                 }
                 else
                 {
-                    echo "<div class='error'>Category not found.</div>";
+                    echo "<div class='error'>A választott típus nem található!</div>";
                 }
             
             ?>
@@ -55,5 +53,4 @@
         </div>
     </section>
 
-
-    <?php include('partials-front/footer.php'); ?>
+<?php include('partials-front/footer.php'); ?>
