@@ -62,9 +62,10 @@ INSERT INTO `tbl_food` (`id`, `title`, `description`, `price`, `image_name`, `ca
 (14, 'Húsimádó Pizza', 'paradicsomos alap, kolbász, szalonna, sonka, sajt', '2190', 'husimado.jpeg', 1, 'Yes', 'Yes'),
 (15, 'Prosciutto Pizza', 'paradicsomos alap, prosciutto, sajt, rukkola', '2090', 'prosciutto.jpeg', 1, 'Yes', 'Yes'),
 (16, 'Négysajtos Pizza', 'paradicsomos alap, parmezán, trappista, edámi, feta', '1890', '4cheese.jpeg', 1, 'Yes', 'Yes'),
-(17, 'Négy évszak Pizza', 'paradicsomos alap, sonka, gomba, fagyasztott zöldségek, sajt', '1890', '4season.jpeg', 1, 'Yes', 'Yes'),
+(17, 'Toscana', 'paradicsomos alap, sonka, mozzarella, bazsalikom', '1890', 'toscana.jpeg', 1, 'Yes', 'Yes'),
 (18, 'Hawaii Pizza', 'paradicsomos alap, sonka, ananász, sajt', '1890', 'hawaii.jpeg', 1, 'Yes', 'Yes'),
-(19, 'Margaréta Pizza', 'paradicsomos alap, sonka, sajt', '1790', 'margareta.jpeg', 1, 'Yes', 'Yes');
+(19, 'Margaréta Pizza', 'paradicsomos alap, sonka, sajt', '1790', 'margareta.jpeg', 1, 'Yes', 'Yes'),
+(20, 'Szalámis Pizza', 'paradicsomos alap, szalámi, sajt', '1790', 'salami.jpeg', 1, 'Yes', 'Yes');
 
 
 

@@ -1,13 +1,14 @@
-**Log on to codeastro.com for more projects!***
+-localhost/phpadmin
 
-**Database Name: onlinefoodorder**
+-adatbázisok
 
-**Developed by Vijay Thapa**
+-új adatbázis: onlinefoodorder
 
-**Recommended PHP Version 5.6 or Newer**
+-importálás : database.sql
 
+-inditas
 
-**Admin Login Details**
+-> ADMIN login
 
 Username: admin
 Password: 123456

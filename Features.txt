@@ -1,0 +1,9 @@
+1. admin/add-category 
+
+- Featured rész maradjon? (felesleg)
+
+2. admin/add food
+
+- kategória kiválasztásnál Option résznél jó a php hivatkozás?
+
+-Featured?

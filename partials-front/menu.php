@@ -32,7 +32,7 @@
                     </li>
                     <li>
                         <!-- ide egy plusz oldal?-->
-                        <a href="#">Kapcsolat</a> 
+                        <a href="<?php echo SITEURL; ?>contact.php">Kapcsolat</a> 
                     </li>
                 </ul>
             </div>

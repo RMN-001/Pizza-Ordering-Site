@@ -1,186 +1,132 @@
 <?php include('partials/menu.php'); ?>
 
-<div class="main-content">
-    <div class="wrapper">
-        <h1>Add Category</h1>
+    <div class="main-content">
+        <div class="wrapper">
 
-        <br><br>
+            <h1>Kategória hozzáadás</h1>
 
-        <?php 
-        
-            if(isset($_SESSION['add']))
-            {
-                echo $_SESSION['add'];
-                unset($_SESSION['add']);
-            }
+            <br><br>
 
-            if(isset($_SESSION['upload']))
-            {
-                echo $_SESSION['upload'];
-                unset($_SESSION['upload']);
-            }
-        
-        ?>
-
-        <br><br>
-
-        <!-- Add CAtegory Form Starts -->
-        <form action="" method="POST" enctype="multipart/form-data">
-
-            <table class="tbl-30">
-                <tr>
-                    <td>Title: </td>
-                    <td>
-                        <input type="text" name="title" placeholder="Category Title">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Select Image: </td>
-                    <td>
-                        <input type="file" name="image">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Featured: </td>
-                    <td>
-                        <input type="radio" name="featured" value="Yes"> Yes 
-                        <input type="radio" name="featured" value="No"> No 
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Active: </td>
-                    <td>
-                        <input type="radio" name="active" value="Yes"> Yes 
-                        <input type="radio" name="active" value="No"> No 
-                    </td>
-                </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="submit" value="Add Category" class="btn-secondary">
-                    </td>
-                </tr>
-
-            </table>
-
-        </form>
-        <!-- Add CAtegory Form Ends -->
-
-        <?php 
-        
-            //CHeck whether the Submit Button is Clicked or Not
-            if(isset($_POST['submit']))
-            {
-                //echo "Clicked";
-
-                //1. Get the Value from CAtegory Form
-                $title = $_POST['title'];
-
-                //For Radio input, we need to check whether the button is selected or not
-                if(isset($_POST['featured']))
-                {
-                    //Get the VAlue from form
-                    $featured = $_POST['featured'];
-                }
-                else
-                {
-                    //SEt the Default VAlue
-                    $featured = "No";
+            <?php 
+            
+                if(isset($_SESSION['add'])) {
+                    echo $_SESSION['add'];
+                    unset($_SESSION['add']);
                 }
 
-                if(isset($_POST['active']))
-                {
-                    $active = $_POST['active'];
+                if(isset($_SESSION['upload'])) {
+                    echo $_SESSION['upload'];
+                    unset($_SESSION['upload']);
                 }
-                else
-                {
-                    $active = "No";
-                }
+            
+            ?>
 
-                //Check whether the image is selected or not and set the value for image name accoridingly
-                //print_r($_FILES['image']);
+            <br><br>
+            
+            <!-- Új elem feltöltése -->
+            <form action="" method="POST" enctype="multipart/form-data">
 
-                //die();//Break the Code Here
+                <table class="tbl-30">
+                    <tr>
+                        <td>Név: </td>
+                        <td>
+                            <input type="text" name="title" placeholder="Kategória neve">
+                        </td>
+                    </tr>
 
-                if(isset($_FILES['image']['name']))
-                {
-                    //Upload the Image
-                    //To upload image we need image name, source path and destination path
-                    $image_name = $_FILES['image']['name'];
+                    <tr>
+                        <td>Kép kiválasztása: </td>
+                        <td>
+                            <input type="file" name="image">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Featured: </td> <!-- biztos kell? -->
+                        <td>
+                            <input type="radio" name="featured" value="Yes"> Igen 
+                            <input type="radio" name="featured" value="No"> Nem 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Elérhető: </td>
+                        <td>
+                            <input type="radio" name="active" value="Yes"> Igen 
+                            <input type="radio" name="active" value="No"> Nem 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" name="submit" value="Kategória hozzáadás" class="btn-secondary">
+                        </td>
+                    </tr>
+
+                </table>
+
+            </form>
+
+            <?php 
+                //Elérhetőség ellenőrzés
+                if(isset($_POST['submit'])) {
                     
-                    // Upload the Image only if image is selected
-                    if($image_name != "")
-                    {
+                    $title = $_POST['title'];
 
-                        //Auto Rename our Image
-                        //Get the Extension of our image (jpg, png, gif, etc) e.g. "specialfood1.jpg"
-                        $ext = end(explode('.', $image_name));
+                    if(isset($_POST['featured'])) {
+                        $featured = $_POST['featured'];
+                    } else {
+                        $featured = "No";
+                    }
 
-                        //Rename the Image
-                        $image_name = "Food_Category_".rand(000, 999).'.'.$ext; // e.g. Food_Category_834.jpg
+                    if(isset($_POST['active'])) {
+                        $active = $_POST['active'];
+                    } else {
+                        $active = "No";
+                    }
+
+                    //Kép ellenőrzés
+                    if(isset($_FILES['image']['name'])) {
+                        $image_name = $_FILES['image']['name'];
                         
+                        if($image_name != "") {
+                            $ext = end(explode('.', $image_name));
+                            $image_name = "Pizza_Kategoria_".rand(000, 999).'.'.$ext; // pl. Pizza_Kategoria_834.jpg
+                            $source_path = $_FILES['image']['tmp_name'];
+                            $destination_path = "../images/category/".$image_name;
+                            $upload = move_uploaded_file($source_path, $destination_path);
 
-                        $source_path = $_FILES['image']['tmp_name'];
-
-                        $destination_path = "../images/category/".$image_name;
-
-                        //Finally Upload the Image
-                        $upload = move_uploaded_file($source_path, $destination_path);
-
-                        //Check whether the image is uploaded or not
-                        //And if the image is not uploaded then we will stop the process and redirect with error message
-                        if($upload==false)
-                        {
-                            //SEt message
-                            $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
-                            //Redirect to Add CAtegory Page
-                            header('location:'.SITEURL.'admin/add-category.php');
-                            //STop the Process
-                            die();
+                            if($upload==false) {
+                                $_SESSION['upload'] = "<div class='error'>A kép feltöltése sikertelen!</div>";
+                                header('location:'.SITEURL.'admin/add-category.php');
+                                die();
+                            }
                         }
+                    } else {
+                        $image_name="";
+                    }
 
+                    //Kategória hozzáadása az adatbázishoz
+                    $sql = "INSERT INTO tbl_category SET 
+                        title='$title',
+                        image_name='$image_name',
+                        featured='$featured',
+                        active='$active'
+                    ";
+
+                    $res = mysqli_query($conn, $sql);
+
+                    if($res==true) {
+                        $_SESSION['add'] = "<div class='success'>Kategória sikeresen hozzáadva!</div>";
+                        header('location:'.SITEURL.'admin/manage-category.php');
+                    } else {
+                        $_SESSION['add'] = "<div class='error'>Kategória hozzáadás sikertelen!</div>";
+                        header('location:'.SITEURL.'admin/add-category.php');
                     }
                 }
-                else
-                {
-                    //Don't Upload Image and set the image_name value as blank
-                    $image_name="";
-                }
+            ?>
 
-                //2. Create SQL Query to Insert CAtegory into Database
-                $sql = "INSERT INTO tbl_category SET 
-                    title='$title',
-                    image_name='$image_name',
-                    featured='$featured',
-                    active='$active'
-                ";
-
-                //3. Execute the Query and Save in Database
-                $res = mysqli_query($conn, $sql);
-
-                //4. Check whether the query executed or not and data added or not
-                if($res==true)
-                {
-                    //Query Executed and Category Added
-                    $_SESSION['add'] = "<div class='success'>Category Added Successfully.</div>";
-                    //Redirect to Manage Category Page
-                    header('location:'.SITEURL.'admin/manage-category.php');
-                }
-                else
-                {
-                    //Failed to Add CAtegory
-                    $_SESSION['add'] = "<div class='error'>Failed to Add Category.</div>";
-                    //Redirect to Manage Category Page
-                    header('location:'.SITEURL.'admin/add-category.php');
-                }
-            }
-        
-        ?>
-
+        </div>
     </div>
-</div>
 
 <?php include('partials/footer.php'); ?>
